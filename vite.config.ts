@@ -4,9 +4,10 @@ import { VitePWA } from 'vite-plugin-pwa';
 import CONFIG from './gitprofile.config';
 import { createHtmlPlugin } from 'vite-plugin-html';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  base: CONFIG.base || '/',
+  // 💥 FIX: Set this to GitHub Pages repo path
+  base: '/gitprofile/', // <- must match your GitHub repo name exactly
+
   plugins: [
     react(),
     createHtmlPlugin({
@@ -42,6 +43,7 @@ export default defineConfig({
         ]
       : []),
   ],
+
   define: {
     CONFIG: CONFIG,
   },
